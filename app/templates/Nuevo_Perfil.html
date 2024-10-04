@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .menu-bar button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 100;
+            color: white;
+        }
+        .menu-content a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+        .menu-content a:hover {
+            background-color: #575757;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #908e8e;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .Menu {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <button onclick="toggleMenu()">☰</button>
+    </div>
+
+    <div id="menu-content" class="menu-content">
+        <p class="Menu">MENU</p>
+        <a href="Inicio.html">Volver</a>
+        <a href="Inicio.html">Salir</a>
+    </div>
+
+    <div class="form-container">
+        <h1>Crear Perfil</h1>
+        <form action="Inicio.html" method="post">
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" minlength="5" maxlength="15" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" minlength="5" maxlength="15" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required value="">
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" minlength="1" maxlength="30" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo-tarjeta">Tipo De Tarjeta</label>
+                <select id="tipo-tarjeta" name="tipo-tarjeta" required>
+                    <option value="TT">Tarjeta De Identidad-(TT)</option>
+                    <option value="CC">Cédula-(CC)</option>
+                    <option value="CE">Cédula Extranjera-(CE)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numero-tarjeta">Número De Documento</label>
+                <input type="text" id="numero" name="numero" minlength="10" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" minlength="10" maxlength="10" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <button type="button">Crear Perfil</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu-content');
+            if (menu.style.width === '250px') {
+                menu.style.width = '0';
+            } else {
+                menu.style.width = '250px';
+            }
+        }
+    </script>
+</body>
+</html>
